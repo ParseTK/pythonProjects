@@ -36,14 +36,14 @@ iCAP: int = (12 + 1)
 for iNum in range(1, iCAP): # Starts at 1, ends iCap
     fNew_balance =  fDeposit * (1 + fInterest / iMonths ) ** iNum
     print(f"Month {iNum: ^4,.0f} Account Balance is: ${fNew_balance: ,.2f}")
-    if fSavings_goal != 0 and fNew_balance >= fSavings_goal: # Savings Goal success
-        print("You've reached your savings goal!")
-        break # Stops loop of Goal achievement once goal is reached
+
+if fSavings_goal != 0 and fNew_balance >= fSavings_goal: # Savings Goal success
+    print("You've reached your savings goal!")
 
 fNew_balance: float = 0
 
 while fNew_balance < fSavings_goal:  # Loop -> Goal
     iMonth += 1  # Tracking the Loop / Months
     fNew_balance = fDeposit * (1 + fInterest / iMonths) ** iMonth
-    if fNew_balance >= fSavings_goal: # Savings Goal
+    if fNew_balance <= fSavings_goal: # Savings Goal
         print(f"It will take: {iMonth: ^4,.0f} months to reach the goal of ${fSavings_goal: ,.2f}")
